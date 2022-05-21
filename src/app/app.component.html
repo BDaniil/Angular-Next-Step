@@ -1,34 +1,3 @@
 <div class="container">
-  
-  <form [formGroup]="profileForm">
-    <h1>Reactive Form</h1>
-    <label for="name">Name: </label>
-    <input id="name" type="text" formControlName="name" #nameInput>
-    <span style="color:rgba(255, 0, 0, 0.705)" *ngIf="name && name.invalid">Name is not valid</span>
-  
-    <label for="age">Age: </label>
-    <input id="age" type="text" formControlName="age" #ageInput>
-    <span style="color:rgba(255, 0, 0, 0.705)" *ngIf="age && age.invalid">Age is not valid</span>
-
-    <label for="email">Email: </label>
-    <input id="email" type="email" formControlName="email" #emailInput>
-    <span style="color:rgba(255, 0, 0, 0.705)" *ngIf="email && email.invalid">Email is not valid</span>
-  
-    <label for="password">Password: </label>
-    <input id="password" type="password" formControlName="password" #passwordInput>
-    <span style="color:rgba(255, 0, 0, 0.705)" *ngIf="password && password.invalid">Password is not valid</span>
-  
-    <button type="submit" [disabled]="!profileForm.valid" (click)="addInputs(nameInput.value, ageInput.value, emailInput.value, passwordInput.value)">Submit</button>
-  </form>
-
-  <div *ngIf="count">
-    <div class="value-container" *ngFor="let check of data">
-      <p class="value-option">Name: {{check.name}}</p>
-      <p class="value-option">Age: {{check.age}}</p>
-      <p class="value-option">Email: {{check.email}}</p>
-      <p class="value-option">Password: {{check.passwordStatus}}</p>
-    </div>
-  </div>
-
-
+  <app-form-validation></app-form-validation>
 </div>
