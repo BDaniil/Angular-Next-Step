@@ -5,6 +5,7 @@ interface Data {
   name: string;
   age: string;
   email: string;
+  passwordStatus: string;
 }
 
 @Component({
@@ -21,9 +22,10 @@ export class AppComponent {
 
   data: Array<Data> = [
     {
-      name: '',
-      age: '',
-      email: '',
+      name: 'Name',
+      age: '20',
+      email: 'test@mail.com',
+      passwordStatus: 'Weak'
     },
   ];
 
@@ -49,6 +51,19 @@ export class AppComponent {
     ]),
   });
 
+  get name(){
+    return this.profileForm.get("name")
+  }
+  get age(){
+    return this.profileForm.get("age")
+  }
+  get email(){
+    return this.profileForm.get("email")
+  }
+  get password(){
+    return this.profileForm.get("password")
+  }
+
   addInputs(name: string, age: string, email: string, password: string) {
     this.count = 1;
 
@@ -66,15 +81,14 @@ export class AppComponent {
       this.passwordInfo = 'Weak';
     }
     
-    this.data = [
+    this.data.push(
       {
         name: name,
         age: age,
         email: email,
+        passwordStatus: this.passwordInfo
       },
-    ];
-
-    
+    )
   }
 }
 
